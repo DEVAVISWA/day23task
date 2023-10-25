@@ -1,6 +1,37 @@
 import React, { Component } from 'react'
 
 export class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isInCart: true
+    }
+    this.state = {
+      count: 0,
+    }
+  }
+
+
+  handleAddToCartButton = () => {
+    this.setState({
+      isInCart: ! this.state.isInCart
+    })
+  }
+
+  increment = () => {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+
+  decrement = () => {
+    this.setState({
+      count: this.state.count - 1
+    })
+  }
+
+
+
   render() {
     return (
       <div>
@@ -28,7 +59,7 @@ export class App extends Component {
                 <button className="btn btn-outline-dark" type="submit">
                   <i className="bi-cart-fill me-1"></i>
                   Cart
-                  <span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                  <span className="badge bg-dark text-white ms-1 rounded-pill"> {this.state.count} </span>
                 </button>
               </form>
             </div>
@@ -62,7 +93,22 @@ export class App extends Component {
                   </div>
                   {/* <!-- Product actions--> */}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+
+
+                    <div className="text-center">
+                      {
+                        this.state.isInCart ? (<button onClick={() => {
+                          this.increment()
+                          this.handleAddToCartButton()
+                        }} className="btn btn-outline-dark mt-auto">Add to cart</button>) :
+                          (<button onClick={() => {
+                            this.decrement()
+                            this.handleAddToCartButton()
+                          }} className="btn btn-outline-dark mt-auto">Remove from cart</button>)
+                      }
+                    </div>
+
+
                   </div>
                 </div>
               </div>
@@ -92,7 +138,16 @@ export class App extends Component {
                   </div>
                   {/* <!-- Product actions--> */}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+
+                  
+
+                    <div className="text-center">
+                      {
+                        <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
+                      }
+                    </div>
+
+
                   </div>
                 </div>
               </div>
@@ -114,7 +169,15 @@ export class App extends Component {
                   </div>
                   {/* <!-- Product actions--> */}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+
+
+                    <div className="text-center">
+                      {
+                        <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
+                      }
+                    </div>
+
+
                   </div>
                 </div>
               </div>
@@ -141,7 +204,15 @@ export class App extends Component {
                   </div>
                   {/* <!-- Product actions--> */}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+
+
+                    <div className="text-center">
+                      {
+                        <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
+                      }
+                    </div>
+
+
                   </div>
                 </div>
               </div>
@@ -163,7 +234,15 @@ export class App extends Component {
                   </div>
                   {/* <!-- Product actions--> */}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+
+
+                    <div className="text-center">
+                      {
+                        <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
+                      }
+                    </div>
+
+
                   </div>
                 </div>
               </div>
@@ -182,7 +261,15 @@ export class App extends Component {
                   </div>
                   {/* <!-- Product actions--> */}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+
+
+                    <div className="text-center">
+                      {
+                        <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
+                      }
+                    </div>
+
+
                   </div>
                 </div>
               </div>
@@ -212,7 +299,15 @@ export class App extends Component {
                   </div>
                   {/* <!-- Product actions--> */}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+
+
+                    <div className="text-center">
+                      {
+                        <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
+                      }
+                    </div>
+
+
                   </div>
                 </div>
               </div>
@@ -239,7 +334,15 @@ export class App extends Component {
                   </div>
                   {/* <!-- Product actions--> */}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+
+
+                    <div className="text-center">
+                      {
+                        <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
+                      }
+                    </div>
+
+
                   </div>
                 </div>
               </div>

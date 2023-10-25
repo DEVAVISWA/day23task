@@ -15,6 +15,7 @@ export class App extends Component {
       isInCart: !this.state.isInCart
     })
   }
+  
   increment = () =>{
     this.setState({
       count: this.state.count+1
