@@ -4,35 +4,51 @@ export class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isInCart: true
-    }
-    this.state = {
       count: 0,
+      isInCart: true,
+      btntext : 'add to cart'
     }
+    // this.state = {
+    //   count: 0,
+    // }
+     
   }
 
 
   handleAddToCartButton = () => {
+    if(this.state.btntext=="add to cart"){
     this.setState({
-      isInCart: ! this.state.isInCart
-    })
-  }
-
-  increment = () => {
-    this.setState({
+      isInCart: ! this.state.isInCart ,
+      btntext : 'remove from cart',
       count: this.state.count + 1
-    })
+
+    })} else{
+      this.setState({
+        isInCart: ! this.state.isInCart ,
+        btntext : 'add to cart',
+        count: this.state.count - 1
+  
+      })
+    }
   }
 
-  decrement = () => {
-    this.setState({
-      count: this.state.count - 1
-    })
-  }
+  // increment = () => {
+  //   this.setState({
+  //     count: this.state.count + 1
+  //   })
+  // }
+
+  // decrement = () => {
+  //   this.setState({
+  //     count: this.state.count - 1
+  //   })
+  // }
 
 
 
   render() {
+       
+    
     return (
       <div>
 
@@ -95,17 +111,28 @@ export class App extends Component {
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
 
 
-                    <div className="text-center">
+                    {/* <div className="text-center">
                       {
                         this.state.isInCart ? (<button onClick={() => {
-                          this.increment()
+                          // this.increment()
                           this.handleAddToCartButton()
-                        }} className="btn btn-outline-dark mt-auto">Add to cart</button>) :
+                        }} className="btn btn-outline-dark mt-auto"> {this.state.btntext} </button>) :
                           (<button onClick={() => {
                             this.decrement()
                             this.handleAddToCartButton()
                           }} className="btn btn-outline-dark mt-auto">Remove from cart</button>)
                       }
+                    </div> */}
+
+                    <div className='text-center'>
+                      
+                      <button className="btn btn-outline-dark mt-auto" 
+                      onClick={ () => {
+                        this.handleAddToCartButton()
+                      }
+                        
+                      }>  {this.state.btntext  } </button>
+
                     </div>
 
 
@@ -146,6 +173,7 @@ export class App extends Component {
                         <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
                       }
                     </div>
+                    
 
 
                   </div>
@@ -176,7 +204,7 @@ export class App extends Component {
                         <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
                       }
                     </div>
-
+                   
 
                   </div>
                 </div>
@@ -211,6 +239,7 @@ export class App extends Component {
                         <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
                       }
                     </div>
+                    
 
 
                   </div>
@@ -241,6 +270,7 @@ export class App extends Component {
                         <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
                       }
                     </div>
+                    
 
 
                   </div>
@@ -268,7 +298,7 @@ export class App extends Component {
                         <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
                       }
                     </div>
-
+                    
 
                   </div>
                 </div>
@@ -306,6 +336,7 @@ export class App extends Component {
                         <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
                       }
                     </div>
+                    
 
 
                   </div>
@@ -341,6 +372,7 @@ export class App extends Component {
                         <button onClick={this.increment} className="btn btn-outline-dark mt-auto">Add to cart</button>
                       }
                     </div>
+                   
 
 
                   </div>
@@ -353,7 +385,9 @@ export class App extends Component {
 
 
       </div>
-    )
+      
+    ) 
+    
   }
 }
 
