@@ -113,13 +113,11 @@ function App() {
                     }
                   </div> */}
 
-                  <div className="text-center">
-                    {inCart ? (
-                      <button className="btn btn-outline-dark mt-auto" onClick={handleRemoveFromCart}>Remove from Cart</button>
-                    ) : (
-                      <button className="btn btn-outline-dark mt-auto" onClick={handleAddToCart}>Add to Cart</button>)
-                    }
-                  </div>
+                  {inCart ? (
+                    <button onClick={handleRemoveFromCart}>Remove from Cart</button>
+                  ) : (
+                    <button onClick={handleAddToCart}>Add to Cart</button>)
+                  }
 
 
 
