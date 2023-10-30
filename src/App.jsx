@@ -1,30 +1,23 @@
 import React from 'react'
 import { useState } from 'react';
-
-
-
-
-
 function App() {
 
-  const [inCart, setInCart] = useState(false);
+  const [inCart, setInCart] = useState([]);
+  const[count,setCount] = useState(0)
 
   const handleAddToCart = () => {
-
+    // console.log(i, 'clicked')
+    setCount(count+1)
     setInCart(true);
   };
 
   const handleRemoveFromCart = () => {
-
+    // console.log(i, 'clicked')
+    setCount(count-1)
     setInCart(false);
   };
-
-
-
   return (
     <div>
-
-
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container px-4 px-lg-5">
           <a className="navbar-brand" href="#!">Start Bootstrap</a>
@@ -47,7 +40,7 @@ function App() {
               <button className="btn btn-outline-dark" type="submit">
                 <i className="bi-cart-fill me-1"></i>
                 Cart
-                <span className="badge bg-dark text-white ms-1 rounded-pill"> 0 </span>
+                <span className="badge bg-dark text-white ms-1 rounded-pill"> {count} </span>
               </button>
             </form>
           </div>
@@ -115,9 +108,13 @@ function App() {
 
                   <div className="text-center">
                     {inCart ? (
-                      <button className="btn btn-outline-dark mt-auto" onClick={handleRemoveFromCart}>Remove from Cart</button>
+                      <button className="btn btn-outline-dark mt-auto" 
+                      onClick={handleRemoveFromCart}
+                       >Remove from Cart</button>
                     ) : (
-                      <button className="btn btn-outline-dark mt-auto" onClick={handleAddToCart}>Add to Cart</button>)
+                      <button className="btn btn-outline-dark mt-auto" 
+                      onClick={handleAddToCart}
+                       >Add to Cart</button>)
                     }
                   </div>
 
@@ -160,12 +157,17 @@ function App() {
                       <button className="btn btn-outline-dark mt-auto">Add to cart</button>
                     }
                   </div> */}
-
-                  {inCart ? (
-                    <button onClick={handleRemoveFromCart}>Remove from Cart</button>
-                  ) : (
-                    <button onClick={handleAddToCart}>Add to Cart</button>)
-                  }
+                  <div className="text-center">
+                    {inCart ? (
+                      <button className="btn btn-outline-dark mt-auto" 
+                      onClick={handleRemoveFromCart}
+                       >Remove from Cart</button>
+                    ) : (
+                      <button className="btn btn-outline-dark mt-auto" 
+                      onClick={handleAddToCart}
+                       >Add to Cart</button>)
+                    }
+                  </div>
 
 
 
